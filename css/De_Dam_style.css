@@ -32,7 +32,7 @@ h1 {
     width: 90vw;
 }
 
-button {
+.eerste_audio_button {
     position: absolute;
     width: 1rem;
     height: 1rem;

@@ -1,3 +1,6 @@
+/* De rede waarom ik dit maak is om elementen
+ in te laden en de ander weer uit te laden. */
+
 export function DamElementen()
 {
     const Heading = document.createElement("h1");
@@ -11,8 +14,9 @@ export function DamElementen()
     Image.alt = "ProButton op de dam";
     document.body.appendChild(Image);
 
-    const Button = document.createElement("button")
-    document.body.appendChild(Button);
+    const Eerste_Audio_Button = document.createElement("button")
+    Eerste_Audio_Button.className = "eerste_audio_button";
+    document.body.appendChild(Eerste_Audio_Button);
 }
 
 export function PopupElementen()
@@ -22,5 +26,11 @@ export function PopupElementen()
     document.body.appendChild(Section);
 
     const Sub_Heading = document.createElement("h2");
-    document.body.appendChild(Section);
+    Section.appendChild(Sub_Heading);
+
+    const Oke_Button = document.createElement("button");
+    Oke_Button.className = "oke_button";
+    Oke_Button.innerText = "Oké";
+    Oke_Button.onclick = function(){ "../De_Dam.html" };
+    document.body.appendChild(Oke_Button);
 }
