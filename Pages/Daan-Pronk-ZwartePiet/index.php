@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Lives Matter - Protest op de Dam</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Black Lives Matter</h1>
+            <p>Zwarte Piet - Op de dam</p>
+            <button class="play-btn" onclick="openVideoModal()">▶ Bekijk Video</button>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeVideoModal()">&times;</span>
+            <iframe 
+                width="100%" 
+                height="500" 
+                src="https://npo.nl/start/afspelen/black-lives-matter-5-jaar-later" 
+                frameborder="0" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="info-section">
+            <h2>Zwarte Piet</h2>
+            <p>
+                Zwarte Piet is een traditionele figuur in de Nederlandse sinterklaasviering. In recente jaren is er veel discussie over 
+                deze figuur vanwege racistische connotaties. De beweging voor verandering roept op om af te stappen van deze traditie 
+                en voor meer inclusiviteit en respect voor alle gemeenschappen.
+            </p>
+        </section>
+
+        <section class="info-section">
+            <h2>Black Lives Matter</h2>
+            <p>
+                Black Lives Matter is een movement gericht op het beëindigen van politiegeweld en systemische discriminatie tegen 
+                zwarte mensen. Het movement roept op voor gelijkheid, rechtvaardigheid en maatschappelijke verandering. 
+                In Nederland hebben ook protesten plaatsgevonden om solidariteit te tonen en bewustzijn te vergroten.
+            </p>
+        </section>
+
+        <section class="info-section">
+            <h2>Protesten op de Dam</h2>
+            <p>
+                De Dam in Amsterdam is een historische plek waar vele protesten en demonstraties hebben plaatsgevonden. 
+                Het is een belangrijk platform voor activisten en burgers om hun stem te laten horen en maatschappelijke 
+                verandering af te dwingen. De protestbeweging roept op tot dialoog en verandering.
+            </p>
+        </section>
+
+        <section class="events-section">
+            <h2>Zwarte Piet Demonstraties op de Dam</h2>
+            
+            <div class="events-text">
+                <p>
+                    <strong>Jaarlijkse Demonstraties tegen Zwarte Piet</strong><br>
+                    Elk jaar, rond de aankomst van Sinterklaas in november, vinden er protesten plaats op de Dam in Amsterdam. 
+                    Activisten roepen op tot het afschaffen van de Zwarte Piet traditie en pleiten voor een meer inclusieve 
+                    viering van Sinterklaas zonder racistische elementen.
+                </p>
+
+                <p>
+                    <strong>November 2024 - Protest Op de Dam</strong><br>
+                    In november 2024 zal weer een groot protest plaatsvinden op de Dam tegen Zwarte Piet. 
+                    Deelnemers roepen op tot het stoppen van deze traditie en voor meer respect en gelijkheid. 
+                    De Dam is het historische plein waar tienduizenden mensen samen hun bezorgdheid uiten.
+                </p>
+
+                <p>
+                    <strong>Wat willen de demonstranten?</strong><br>
+                    De activisten stellen voor om Zwarte Piet te vervangen door andere figuren zonder racistische kenmerken. 
+                    Dit sluit aan bij internationale normen en het principe dat iedereen zich welkom en gerespecteerd moet voelen. 
+                    De protesten zijn vreedzaam en roepen op tot bewustzijn en dialoog.
+                </p>
+
+                <p>
+                    <strong>De Impact van de Protesten</strong><br>
+                    Dankzij jaren van protesten op de Dam en elders zijn vele gemeentes en organisaties over gegaan 
+                    tot het herzien van de Zwarte Piet traditie. Veel kinderopvang, scholen en verenigingen gebruiken 
+                    inmiddels alternatieve figuren. De beweging toont aan dat verandering mogelijk is door samen op te staan.
+                </p>
+            </div>
+        </section>
+        </section>
+    </div>
+
+    <script>
+        function openVideoModal() {
+            document.getElementById("videoModal").style.display = "flex";
+        }
+
+        function closeVideoModal() {
+            document.getElementById("videoModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("videoModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
