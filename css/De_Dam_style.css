@@ -18,9 +18,26 @@ html {
 img{
     display: flex;
     justify-self: center;
-    position: absolute;
     max-width: 100%;
     height: auto;
+}
+
+.pop-up_scherm {
+    position: absolute;
+    padding: 2rem;
+    left: 30vw;
+    justify-content: center;
+    border: black solid;
+    border-radius: 5%;
+    margin: 2rem;
+}
+
+.oke_button {
+    border-radius: 5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin-top: 1rem;
+    background-color: blue;
+    color: white;
 }
 
 h1 {
@@ -28,17 +45,37 @@ h1 {
     justify-self: center;
 }
 
-.image {
-    width: 90vw;
+.De_Dam_image {
+    padding: 1rem;
+    height: 40vw;
 }
 
 .eerste_audio_button {
     position: absolute;
-    width: 1rem;
-    height: 1rem;
-    bottom: 16rem;
-    left: 50vw;
+    width: 2rem;
+    height: 2rem;
+    bottom: 25rem;
+    left: 47vw;
     border-radius: 1rem;
+    background-color: blue;
+}
+
+.div__Audio_Balk {
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    bottom: 28rem;
+    left: 44vw;
+    background-color: white;
+}
+
+.button__Audio_button {
+    position: relative;
+    top: 30%;
+    display: flex;
+    padding: 0.2rem;
+    justify-self: center;
+    border-radius: 5rem;
 }
 
 @media screen and (max-width: 667px) {

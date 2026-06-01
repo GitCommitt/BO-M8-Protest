@@ -10,9 +10,10 @@ if (document.body.offsetWidth == 375) {
 switch (document.body.offsetWidth){
     case 375:
         console.log("Please flip device");
+        PopupElementen();
         break;
     case 667:
-        MaakElementen();
+        DamElementen();
         break;
     default:
         console.log("Please flip device");
