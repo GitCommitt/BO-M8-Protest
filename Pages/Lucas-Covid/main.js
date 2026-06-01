@@ -4,7 +4,7 @@ const feiten = [
     "de eerste besmetting  van corona in nederland was in Brabantse Loon op Zand. ",
     " in Nederland zijn er  8.657.480 bevestigde besmettingen geregistreerd. ",
     "22.986 personen zijn overleden aan corona",
-    "Het protest vond plaatst op zondag 3 october 2021",
+    "Het protest vond plaatst op  1 juni 2020",
     "25.000 mensen waren aanwezig op de",
     "De mensen protesteren tegen het coronabeleid van de overheid",
 ];
