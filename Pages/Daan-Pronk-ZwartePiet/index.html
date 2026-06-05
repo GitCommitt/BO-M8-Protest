@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Hero Section -->
     <div class="hero-image">
         <div class="hero-text">
             <h1>Black Lives Matter</h1>
@@ -16,14 +15,13 @@
         </div>
     </div>
 
-    <!-- Video Modal -->
     <div id="videoModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeVideoModal()">&times;</span>
             <iframe 
                 width="100%" 
                 height="500" 
-                src="https://npo.nl/start/afspelen/black-lives-matter-5-jaar-later" 
+                src="img/video.mp4" 
                 frameborder="0" 
                 allowfullscreen>
             </iframe>
@@ -40,75 +38,73 @@
             </p>
         </section>
 
-        <section class="info-section">
-            <h2>Black Lives Matter</h2>
-            <p>
-                Black Lives Matter is een movement gericht op het beëindigen van politiegeweld en systemische discriminatie tegen 
-                zwarte mensen. Het movement roept op voor gelijkheid, rechtvaardigheid en maatschappelijke verandering. 
-                In Nederland hebben ook protesten plaatsgevonden om solidariteit te tonen en bewustzijn te vergroten.
-            </p>
-        </section>
-
-        <section class="info-section">
-            <h2>Protesten op de Dam</h2>
-            <p>
-                De Dam in Amsterdam is een historische plek waar vele protesten en demonstraties hebben plaatsgevonden. 
-                Het is een belangrijk platform voor activisten en burgers om hun stem te laten horen en maatschappelijke 
-                verandering af te dwingen. De protestbeweging roept op tot dialoog en verandering.
-            </p>
-        </section>
-
-        <section class="events-section">
-            <h2>Zwarte Piet Demonstraties op de Dam</h2>
+        <section class="timeline-section">
+            <h2>Protesten op de Dam - Een Tijdlijn</h2>
+            <p class="timeline-intro">Klik op een jaar om meer te zien over wat er gebeurde</p>
             
-            <div class="events-text">
-                <p>
-                    <strong>Jaarlijkse Demonstraties tegen Zwarte Piet</strong><br>
-                    Elk jaar, rond de aankomst van Sinterklaas in november, vinden er protesten plaats op de Dam in Amsterdam. 
-                    Activisten roepen op tot het afschaffen van de Zwarte Piet traditie en pleiten voor een meer inclusieve 
-                    viering van Sinterklaas zonder racistische elementen.
-                </p>
+            <div class="timeline-container">
+                <button class="timeline-button" onclick="toggleYear(2011)">2011</button>
+                <button class="timeline-button" onclick="toggleYear(2014)">2014</button>
+                <button class="timeline-button" onclick="toggleYear(2020)">2020</button>
+                <button class="timeline-button" onclick="toggleYear(2022)">2022-2023</button>
+            </div>
 
-                <p>
-                    <strong>November 2024 - Protest Op de Dam</strong><br>
-                    In november 2024 zal weer een groot protest plaatsvinden op de Dam tegen Zwarte Piet. 
-                    Deelnemers roepen op tot het stoppen van deze traditie en voor meer respect en gelijkheid. 
-                    De Dam is het historische plein waar tienduizenden mensen samen hun bezorgdheid uiten.
-                </p>
+            <div class="timeline-content" id="year-2011">
+                <h3>2011 - Het Jaar van de Eerste Arrestaties</h3>
+                <div class="timeline-detail">
+                    <h4>De Situatie op de Dam:</h4>
+                    <p>Tijdens de landelijke intocht in Amsterdam lopen een handjevol demonstranten met shirts met de tekst 'Zwarte Piet is Racisme' rustig richting de Dam. De sfeer slaat snel om wanneer ze hardhandig door de politie worden weggedragen en gearresteerd omdat ze geen vergunning hebben.</p>
+                    
+                    <h4>De Betekenis:</h4>
+                    <p>Dit was het absolute startschot van de moderne, zichtbare protestbeweging (met o.a. Jerry Afriyie en Quinsy Gario). Het leidde tot grote verontwaardiging over het politieoptreden.</p>
 
-                <p>
-                    <strong>Wat willen de demonstranten?</strong><br>
-                    De activisten stellen voor om Zwarte Piet te vervangen door andere figuren zonder racistische kenmerken. 
-                    Dit sluit aan bij internationale normen en het principe dat iedereen zich welkom en gerespecteerd moet voelen. 
-                    De protesten zijn vreedzaam en roepen op tot bewustzijn en dialoog.
-                </p>
+                    <img class="tijdlijn-img" src="img/2011-photo.jpg" alt="">
+                </div>
+            </div>
 
-                <p>
-                    <strong>De Impact van de Protesten</strong><br>
-                    Dankzij jaren van protesten op de Dam en elders zijn vele gemeentes en organisaties over gegaan 
-                    tot het herzien van de Zwarte Piet traditie. Veel kinderopvang, scholen en verenigingen gebruiken 
-                    inmiddels alternatieve figuren. De beweging toont aan dat verandering mogelijk is door samen op te staan.
-                </p>
+            <div class="timeline-content" id="year-2014">
+                <h3>2014 - De Intocht van de 'Witte Pieten'</h3>
+                <div class="timeline-detail">
+                    <h4>De Situatie op de Dam:</h4>
+                    <p>Het protest verschuift naar de officiële intocht op de Dam. De discussie is inmiddels ontploft. De organisatie probeert te sussen door voor het eerst 'Witte Pieten' en 'Rode Pieten' mee te laten lopen, terwijl KOZP-demonstranten op de Dam met spandoeken staan tussen het feestvierende publiek.</p>
+                    
+                    <h4>De Betekenis:</h4>
+                    <p>Dit laat de eerste zichtbare twijfel en verandering in de traditie zien, hoewel de alternatieve Pieten destijds nog veelvuldig werden uitgejouwd.</p>
+                    
+                    <img class="tijdlijn-img" src="img/2014-photo.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="timeline-content" id="year-2020">
+                <h3>2020 - Het Massale Coronaprotest</h3>
+                <div class="timeline-detail">
+                    <h4>De Situatie op de Dam:</h4>
+                    <p>Midden in een wereldwijde pandemie stromen onverwacht niet honderden, maar ruim 10.000 mensen naar de Dam. Ze staan schouder aan schouder. De aanleiding is een internationale antiracisme-golf, maar de Zwarte Piet-discussie staat centraal op de borden.</p>
+                    
+                    <h4>De Betekenis:</h4>
+                    <p>Het absolute kantelmoment. De schaal was zo gigantisch dat de politiek en grote bedrijven (zoals supermarkten en het Sinterklaasjournaal) diezelfde zomer nog besloten de traditionele Piet te vervangen door de Roetveegpiet.</p>
+                    
+                    <img class="tijdlijn-img" src="img/2020-photo.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="timeline-content" id="year-2022">
+                <h3>2022-2023 - De Rust na de Storm</h3>
+                <div class="timeline-detail">
+                    <h4>De Situatie op de Dam:</h4>
+                    <p>De intocht trekt over de Dam. Er zijn amper nog protesten of ME-inzetten nodig, omdat de Roetveegpiet in Amsterdam inmiddels volledig de standaard is geworden. Het debat op het plein is nagenoeg verstomd.</p>
+                    
+                    <h4>De Betekenis:</h4>
+                    <p>Dit laat het 'eindpunt' (of de huidige status) van de transformatie op de Dam zien, waarbij de focus van de protesten is verschoven naar kleinere gemeenten buiten de Randstad.</p>
+                
+                    <img class="tijdlijn-img" src="img/2022-photo.jpg" alt="">
+
+                </div>
             </div>
         </section>
         </section>
     </div>
 
-    <script>
-        function openVideoModal() {
-            document.getElementById("videoModal").style.display = "flex";
-        }
-
-        function closeVideoModal() {
-            document.getElementById("videoModal").style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            var modal = document.getElementById("videoModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
