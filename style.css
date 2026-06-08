@@ -1,0 +1,111 @@
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+
+  background-image: url("../image/onderzoek-besluitvorming-rond-black-lives-matter-protest-op-dam-was-slordig.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bubble-container {
+  position: absolute;
+  text-align: center;
+}
+
+/* Bubble Positions */
+
+#het-monument {
+  top: 120px;
+  right: 520px;
+}
+
+#corona {
+  bottom: 120px;
+  right: 520px;
+}
+
+#George-Floyd {
+  top: 120px;
+  left: 200px;
+}
+
+#jongeren {
+  bottom: 120px;
+  left: 200px;
+}
+
+#zwarte-piet {
+  top: 350px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Bubble Style */
+
+.bubble {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+
+  transition: transform 0.2s ease;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto;
+}
+
+.bubble:hover {
+  transform: scale(1.08);
+}
+
+.bubble img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Popup */
+
+.popup-text {
+  display: none;
+
+  margin-top: 12px;
+  padding: 10px 14px;
+
+  background: white;
+  border-radius: 14px;
+
+  max-width: 220px;
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+  animation: popUp 0.25s ease;
+}
+
+.popup-text.show {
+  display: inline-block;
+}
+
+@keyframes popUp {
+  from {
+    opacity: 0;
+    transform: translateY(-5px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
