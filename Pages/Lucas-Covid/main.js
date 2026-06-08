@@ -36,6 +36,16 @@ function nieuwFeit() {
 }
 
 function filterFeit(type) {
-    huidigeFilter = type;
+    if (type === "all") {
+        huidigeFilter = null;
+    } else {
+        huidigeFilter = type;
+    }
     nieuwFeit();
 }
+
+document.querySelectorAll(".button-row button").forEach(button => {
+    button.addEventListener("click", () => {
+        filterFeit(button.dataset.filter);
+    });
+});

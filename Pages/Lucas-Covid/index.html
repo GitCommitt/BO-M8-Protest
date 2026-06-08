@@ -2,6 +2,7 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corona & Protest Feitjes – 1 juni 2020</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,11 +18,12 @@
             <p id="feitje">Klik op een knop om een feitje te zien!</p>
         </div>
 
-        <div class="buttons">
-            <button onclick="nieuwFeit()">Alle feitjes</button>
-            <button onclick="filterFeit('corona')">Corona</button>
-            <button onclick="filterFeit('protest')">Protest</button>
+       <div class="button-row">
+            <button data-filter="all"><span class="icon">📚</span>Alle feitjes</button>
+            <button data-filter="corona"><span class="icon">😷</span>Corona</button>
+            <button data-filter="protest"><span class="icon">✊</span>Protest</button>
         </div>
+
     </div>
 
     <script src="main.js"></script>
