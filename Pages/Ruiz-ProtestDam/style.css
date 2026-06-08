@@ -9,12 +9,18 @@ body {
   background-position: center;
 }
 
+/* ==========================
+   Bubble Containers
+   ========================== */
+
 .bubble-container {
   position: absolute;
-  text-align: center;
+  z-index: 100;
 }
 
-/* Bubble Positions */
+/* ==========================
+   Posities
+   ========================== */
 
 #het-monument {
   top: 120px;
@@ -42,7 +48,9 @@ body {
   transform: translateX(-50%);
 }
 
-/* Bubble Style */
+/* ==========================
+   Bubble Style
+   ========================== */
 
 .bubble {
   width: 120px;
@@ -50,21 +58,33 @@ body {
 
   border-radius: 50%;
   overflow: hidden;
+
   cursor: pointer;
-
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-
-  transition: transform 0.2s ease;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  margin: 0 auto;
+  /* Sterke paarse glow */
+  box-shadow:
+    0 0 30px #45b6d2,
+    0 0 60px #45b6d2,
+    0 0 100px #45b6d2,
+    0 0 150px #45b6d2,
+    0 0 200px rgba(51, 214, 255, 0.8);
+
+  transition: all 0.3s ease;
 }
 
 .bubble:hover {
   transform: scale(1.08);
+
+  box-shadow:
+    0 0 30px #45b6d2,
+    0 0 60px #45b6d2,
+    0 0 100px #45b6d2,
+    0 0 150px #45b6d2,
+    0 0 200px rgba(51, 214, 255, 0.8);
 }
 
 .bubble img {
@@ -73,39 +93,143 @@ body {
   object-fit: cover;
 }
 
-/* Popup */
+/* ==========================
+   Popup
+   ========================== */
 
 .popup-text {
   display: none;
 
-  margin-top: 12px;
-  padding: 10px 14px;
+  position: absolute;
+
+  top: 50%;
+  left: 140px;
+
+  transform: translateY(-50%);
+
+  width: 430px;
+  max-width: 80vw;
+
+  padding: 20px;
 
   background: white;
   border-radius: 14px;
 
-  max-width: 220px;
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: left;
 
-  font-size: 14px;
-  line-height: 1.4;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
-  animation: popUp 0.25s ease;
+  z-index: 9999;
 }
 
 .popup-text.show {
-  display: inline-block;
+  display: block;
 }
+
+/* ==========================
+   Afbeeldingen in popup
+   ========================== */
+
+.popup-text img {
+  width: 120px;
+  height: auto;
+
+  float: left;
+
+  margin-right: 15px;
+  margin-bottom: 10px;
+
+  border-radius: 8px;
+}
+
+/* ==========================
+   Tekst
+   ========================== */
+
+.popup-text p {
+  margin: 0 0 12px 0;
+}
+
+/* ==========================
+   Rechterkant scherm
+   Popup links tonen
+   ========================== */
+
+#het-monument .popup-text,
+#corona .popup-text {
+  left: 160px;
+}
+
+/* ==========================
+   George Floyd
+   ========================== */
+
+#George-Floyd .popup-text {
+  left: 160px;
+}
+
+/* ==========================
+   Zwarte Piet
+   Popup rechts van bubbel
+   ========================== */
+
+#zwarte-piet .popup-text {
+  left: 160px;
+  right: auto;
+}
+
+/* ==========================
+   Animatie
+   ========================== */
 
 @keyframes popUp {
   from {
     opacity: 0;
-    transform: translateY(-5px) scale(0.95);
+    transform: translateY(-50%) scale(0.95);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+.popup-text.show {
+  display: block;
+  animation: popUp 0.25s ease;
+}
+
+/* ==========================
+   Mobiel
+   ========================== */
+
+@media (max-width: 768px) {
+  .bubble {
+    width: 90px;
+    height: 90px;
+  }
+
+  .popup-text {
+    width: 280px;
+    left: 110px;
+    font-size: 14px;
+  }
+
+  .popup-text img {
+    width: 80px;
+  }
+
+  #het-monument .popup-text,
+  #corona .popup-text {
+    right: 110px;
+  }
+
+  #zwarte-piet .popup-text {
+    left: 110px;
   }
 }
