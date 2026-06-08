@@ -1,7 +1,11 @@
+/* ==========================
+   PAGINA
+   ========================== */
+
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
   min-height: 100vh;
-  margin: 0;
 
   background-image: url("image/onderzoek-besluitvorming-rond-black-lives-matter-protest-op-dam-was-slordig.png");
   background-repeat: no-repeat;
@@ -9,26 +13,33 @@ body {
   background-position: center;
 }
 
+/* ==========================
+   BUBBLE CONTAINERS
+   ========================== */
+
 .bubble-container {
   position: absolute;
-  text-align: center;
+  z-index: 1000;
 }
 
-/* Bubble Positions */
+/* ==========================
+   DESKTOP POSITIES
+   ========================== */
+
+#George-Floyd {
+  top: 120px;
+  left: 200px;
+}
 
 #het-monument {
   top: 120px;
   right: 520px;
 }
 
-#corona {
-  bottom: 120px;
-  right: 520px;
-}
-
-#George-Floyd {
-  top: 120px;
-  left: 200px;
+#zwarte-piet {
+  top: 310px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #jongeren {
@@ -36,13 +47,14 @@ body {
   left: 200px;
 }
 
-#zwarte-piet {
-  top: 350px;
-  left: 50%;
-  transform: translateX(-50%);
+#corona {
+  bottom: 120px;
+  right: 520px;
 }
 
-/* Bubble Style */
+/* ==========================
+   BUBBLES
+   ========================== */
 
 .bubble {
   width: 120px;
@@ -50,17 +62,21 @@ body {
 
   border-radius: 50%;
   overflow: hidden;
+
   cursor: pointer;
-
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-
-  transition: transform 0.2s ease;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  margin: 0 auto;
+  box-shadow:
+    0 0 30px #45b6d2,
+    0 0 60px #45b6d2,
+    0 0 100px #45b6d2,
+    0 0 150px #45b6d2,
+    0 0 200px rgba(51, 214, 255, 0.8);
+
+  transition: transform 0.3s ease;
 }
 
 .bubble:hover {
@@ -73,39 +89,185 @@ body {
   object-fit: cover;
 }
 
-/* Popup */
+/* ==========================
+   POPUPS
+   ========================== */
 
 .popup-text {
   display: none;
 
-  margin-top: 12px;
-  padding: 10px 14px;
+  position: absolute;
+  top: 50%;
+  left: 160px;
 
-  background: white;
+  transform: translateY(-50%);
+
+  width: 430px;
+  max-width: 80vw;
+
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.98);
   border-radius: 14px;
 
-  max-width: 220px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #222;
 
-  font-size: 14px;
-  line-height: 1.4;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 
-  animation: popUp 0.25s ease;
+  z-index: 2000;
 }
 
 .popup-text.show {
-  display: inline-block;
+  display: block;
+  animation: popUp 0.25s ease;
 }
+
+.popup-text img {
+  width: 120px;
+  height: auto;
+
+  float: left;
+
+  margin-right: 15px;
+  margin-bottom: 10px;
+
+  border-radius: 8px;
+}
+
+.popup-text p {
+  margin: 0;
+}
+
+/* voorkomt dat tekst achter afbeelding blijft lopen */
+.popup-text::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ==========================
+   ANIMATIE
+   ========================== */
 
 @keyframes popUp {
   from {
     opacity: 0;
-    transform: translateY(-5px) scale(0.95);
+    transform: translateY(-50%) scale(0.95);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* ==========================
+   MOBIEL
+   ========================== */
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .bubble {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Bubbelposities */
+
+  #George-Floyd {
+    top: 80px;
+    left: 20px;
+  }
+
+  #het-monument {
+    top: 80px;
+    right: 20px;
+  }
+
+  #zwarte-piet {
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #jongeren {
+    bottom: 80px;
+    left: 20px;
+  }
+
+  #corona {
+    bottom: 80px;
+    right: 20px;
+  }
+
+  /* ==========================
+     MOBIELE POPUP
+     ========================== */
+
+  .popup-text {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 90vw;
+    max-width: 420px;
+
+    max-height: 70vh;
+    overflow-y: auto;
+
+    padding: 18px;
+
+    background: rgba(255, 255, 255, 0.98);
+
+    font-size: 15px;
+    line-height: 1.6;
+    color: #222;
+
+    z-index: 9999;
+  }
+
+  /* afbeelding boven de tekst */
+  .popup-text img {
+    float: none;
+
+    display: block;
+
+    width: 100px;
+    height: auto;
+
+    margin: 0 auto 15px auto;
+  }
+
+  #George-Floyd .popup-text,
+  #het-monument .popup-text,
+  #zwarte-piet .popup-text,
+  #jongeren .popup-text,
+  #corona .popup-text {
+    left: 50%;
+    right: auto;
+  }
+
+  @keyframes popUp {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 }
