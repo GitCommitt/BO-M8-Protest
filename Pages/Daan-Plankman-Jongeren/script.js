@@ -1,9 +1,9 @@
 const photos = [
-  "../images/Jongeren_dam.png",
-  "../images/Jongeren_dam2.png",
-  "../images/Jongeren_dam3.jpg",
-  "../images/Jongeren_dam4.jpg",
-  "../images/Jongeren_dam5.webp"
+  "images/Jongeren_dam.png",
+  "images/Jongeren_dam2.png",
+  "images/Jongeren_dam3.jpg",
+  "images/Jongeren_dam4.jpg",
+  "images/Jongeren_dam5.webp"
 ];
 
 const descriptions = [
