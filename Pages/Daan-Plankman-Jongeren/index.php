@@ -13,12 +13,11 @@
     <div class="dots-container" id="dots"></div>
     <div class="description-box" id="description"></div>
     <div class="controls">
-      <button id="prev">◀ Vorige</button>
+      <button id="prev">Vorige</button>
       <button id="next">Volgende ▶</button>
-      <a href="minigame.html" class="minigame-link">🎮 Memory</a>
+      <a href="minigame.php" class="minigame-link">Memory</a>
     </div>
   </div>
   <script src="script.js"></script>
 </body>
 </html>
-

@@ -124,14 +124,14 @@
                 </div>
 
                 <div class="events-pool" id="eventsPool">
-                    <div class="event-card" draggable="true" data-year="2020">🪧 Massale coronaprotest met 10.000 mensen</div>
-                    <div class="event-card" draggable="true" data-year="2014">🎭 Eerste Witte en Rode Pieten verschijnen</div>
-                    <div class="event-card" draggable="true" data-year="2011">👮 Arrestaties van demonstranten</div>
-                    <div class="event-card" draggable="true" data-year="2022">✅ Roetveegpiet is standaard in Amsterdam</div>
+                    <div class="event-card" draggable="true" data-year="2020">Massale coronaprotest met 10.000 mensen</div>
+                    <div class="event-card" draggable="true" data-year="2014">Eerste Witte en Rode Pieten verschijnen</div>
+                    <div class="event-card" draggable="true" data-year="2011">Arrestaties van demonstranten</div>
+                    <div class="event-card" draggable="true" data-year="2022">Roetveegpiet is standaard in Amsterdam</div>
                 </div>
 
-                <button class="check-btn" onclick="checkTimeline()">✓ Controleer Antwoord</button>
-                <button class="reset-btn" onclick="resetTimeline()">🔄 Opnieuw</button>
+                <button class="check-btn" onclick="checkTimeline()">Controleer Antwoord</button>
+                <button class="reset-btn" onclick="resetTimeline()">Opnieuw</button>
                 <div id="timelineResult" class="timeline-result"></div>
             </div>
         </section>

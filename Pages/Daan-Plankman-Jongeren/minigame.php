@@ -9,14 +9,13 @@
 <body>
   <div class="game-container">
     <div class="header">
-      <h1>🕊️ BLM Memory Match</h1>
+      <h1>BLM Memory Match</h1>
       <a href="index.html" class="home-btn">← Terug naar slideshow</a>
     </div>
 
     <div id="game-content">
-      <!-- Start Screen -->
       <div id="start-screen" class="screen active">
-        <h2>🕊️ BLM Memory Match Challenge</h2>
+        <h2>BLM Memory Match Challenge</h2>
         <p>Match de kernwaarden van het Black Lives Matter protest! Vind alle overeenkomende paren.</p>
         <div class="difficulty-selector">
           <button class="difficulty-btn" data-difficulty="easy">
@@ -34,7 +33,6 @@
         </div>
       </div>
 
-      <!-- Game Screen -->
       <div id="game-screen" class="screen">
         <div class="game-stats">
           <div class="stat">
@@ -56,10 +54,9 @@
         <button id="restart-game-btn" class="btn-secondary">Opnieuw starten</button>
       </div>
 
-      <!-- Win Screen -->
       <div id="win-screen" class="screen">
         <div class="win-content">
-          <h2>🏆 Je hebt gewonnen!</h2>
+          <h2>Je hebt gewonnen!</h2>
           <div class="win-stats">
             <p>Zetten: <strong id="final-moves">0</strong></p>
             <p>Tijd: <strong id="final-time">0s</strong></p>

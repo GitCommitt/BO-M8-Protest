@@ -8,7 +8,7 @@ let moves = 0;
 let gameActive = true;
 let timerInterval;
 let timeElapsed = 0;
-let disappeared = new Set(); // Track cards that have disappeared
+let disappeared = new Set();
 
 const screens = {
   start: document.getElementById('start-screen'),
@@ -32,11 +32,9 @@ function getDifficultyConfig(level) {
 
 function createGameBoard() {
   const config = getDifficultyConfig(difficulty);
-  const totalCards = config.cols * config.rows;
   const selectedSymbols = symbols.slice(0, config.pairs);
   const cardArray = [...selectedSymbols, ...selectedSymbols];
   
-  // Shuffle
   for (let i = cardArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [cardArray[i], cardArray[j]] = [cardArray[j], cardArray[i]];
@@ -80,9 +78,6 @@ function renderBoard() {
   board.style.gridTemplateRows = `repeat(${config.rows}, 1fr)`;
   
   gameBoard.forEach((symbol, index) => {
-    const isMatched = gameBoard[index] === null;
-    
-    // Skip rendering disappeared cards completely
     if (disappeared.has(index)) {
       return;
     }
@@ -93,12 +88,11 @@ function renderBoard() {
     
     const isFlipped = flipped.includes(index);
     
-    if (isMatched) {
+    if (gameBoard[index] === null) {
       card.classList.add('matched');
       card.classList.add('disappearing');
       card.textContent = '';
       
-      // Trigger disappearing animation and mark as disappeared
       setTimeout(() => {
         disappeared.add(index);
         renderBoard();
@@ -159,29 +153,26 @@ function endGame() {
   document.getElementById('final-moves').textContent = moves;
   document.getElementById('final-time').textContent = timeElapsed + 's';
   
-  // Calculate rating
-  const config = getDifficultyConfig(difficulty);
   let rating = '';
   
   if (difficulty === 'easy') {
-    if (moves <= 6) rating = '⭐⭐⭐⭐⭐ Perfect!';
-    else if (moves <= 10) rating = '⭐⭐⭐⭐ Heel goed!';
-    else rating = '⭐⭐⭐ Goed gedaan!';
+    if (moves <= 6) rating = 'Perfect!';
+    else if (moves <= 10) rating = 'Heel goed!';
+    else rating = 'Goed gedaan!';
   } else if (difficulty === 'medium') {
-    if (moves <= 12) rating = '⭐⭐⭐⭐⭐ Perfect!';
-    else if (moves <= 20) rating = '⭐⭐⭐⭐ Heel goed!';
-    else rating = '⭐⭐⭐ Goed gedaan!';
+    if (moves <= 12) rating = 'Perfect!';
+    else if (moves <= 20) rating = 'Heel goed!';
+    else rating = 'Goed gedaan!';
   } else {
-    if (moves <= 20) rating = '⭐⭐⭐⭐⭐ Perfect!';
-    else if (moves <= 35) rating = '⭐⭐⭐⭐ Heel goed!';
-    else rating = '⭐⭐⭐ Goed gedaan!';
+    if (moves <= 20) rating = 'Perfect!';
+    else if (moves <= 35) rating = 'Heel goed!';
+    else rating = 'Goed gedaan!';
   }
   
   document.getElementById('rating').textContent = rating;
   showScreen('win');
 }
 
-// Event Listeners
 document.querySelectorAll('.difficulty-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const level = btn.dataset.difficulty;
@@ -198,8 +189,7 @@ document.getElementById('play-again-btn').addEventListener('click', () => {
 });
 
 document.getElementById('back-btn-win').addEventListener('click', () => {
-  window.location.href = 'index.html';
+  window.location.href = 'index.php';
 });
 
-// Initialize
 showScreen('start');
