@@ -10,7 +10,7 @@ const descriptions = [
   "Vrouw heft haar vuist tijdens Black Lives Matter-protest.",
   "Demonstratie op de Dam met jongeren die protesteren tegen racisme en politiegeweld.",
   "Borden met 'Stop politiegeweld' en 'Act now' op de dam tijdens het Black Lives Matter protest.",
-  "Mensen met mondmaskers en opgestoken vuisten op de Dam.",
+  "Mensen met mondmaskers Hex en opgestoken vuisten op de Dam.",
   "Een groep vrouwen met prostestborden klaar om te prosteren met Black Lives Matter op de Dam."
 ];
 
@@ -19,7 +19,6 @@ const slide = document.getElementById("slide");
 const desc = document.getElementById("description");
 const counter = document.getElementById("counter");
 const dotsContainer = document.getElementById("dots");
-
 
 for (let i = 0; i < photos.length; i++) {
   const dot = document.createElement("span");
@@ -40,7 +39,6 @@ function showSlide(index) {
   desc.textContent = descriptions[index];
   counter.textContent = (index + 1) + " / " + photos.length;
   
-  
   dots.forEach((dot, i) => {
     dot.classList.toggle("active", i === index);
   });
@@ -57,7 +55,6 @@ document.getElementById("prev").addEventListener("click", () => {
   current = (current - 1 + photos.length) % photos.length;
   showSlide(current);
 });
-
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") {

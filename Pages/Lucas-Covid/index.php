@@ -8,26 +8,19 @@
 </head>
 <body>
 
-    <header class="hero">
-        <h1>Feitjes over Corona & het Protest op de Dam</h1>
-        <p class="subtitle">Ontdek korte, interessante weetjes over de coronaperiode en het grote protest van 1 juni 2020.</p>
-    </header>
-
     <div class="container">
         <div id="feit-box">
+            <h2>Feitjes Corona & Dam Protest</h2>
             <p id="feitje">Klik op een knop om een feitje te zien!</p>
         </div>
 
        <div class="button-row">
-            <button data-filter="all"><span class="icon">📚</span>Alle feitjes</button>
-            <button data-filter="corona"><span class="icon">😷</span>Corona</button>
-            <button data-filter="protest"><span class="icon">✊</span>Protest</button>
+            <button data-filter="all"></span>Alle feitjes</button>
+            <button data-filter="corona"></span>Corona</button>
+            <button data-filter="protest"></span>Protest</button>
         </div>
-
     </div>
 
     <script src="main.js"></script>
 </body>
 </html>
-
-

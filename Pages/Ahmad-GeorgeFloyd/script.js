@@ -67,9 +67,9 @@ function startQuiz() {
   score = 0;
   answered = false;
 
-  startScreen.classList.add("hidden");
-  resultScreen.classList.add("hidden");
-  quizScreen.classList.remove("hidden");
+  startScreen.classList.remove("active");
+  resultScreen.classList.remove("active");
+  quizScreen.classList.add("active");
 
   showQuestion();
 }
@@ -77,6 +77,7 @@ function startQuiz() {
 function showQuestion() {
   answered = false;
   feedback.textContent = "";
+  feedback.className = "";
   nextBtn.classList.add("hidden");
   answerButtons.innerHTML = "";
 
@@ -119,10 +120,12 @@ function selectAnswer(button, selectedIndex) {
   if (selectedIndex === currentQuestion.correct) {
     button.classList.add("correct");
     feedback.textContent = "Goed antwoord!";
+    feedback.classList.add("success");
     score++;
   } else {
     button.classList.add("wrong");
-    feedback.textContent = "Niet helemaal goed. Het juiste antwoord is groen gemarkeerd.";
+    feedback.textContent = "Niet helemaal goed. Het juiste antwoord is gemarkeerd.";
+    feedback.classList.add("error");
     allButtons[currentQuestion.correct].classList.add("correct");
   }
 
@@ -141,8 +144,8 @@ function nextQuestion() {
 }
 
 function showResult() {
-  quizScreen.classList.add("hidden");
-  resultScreen.classList.remove("hidden");
+  quizScreen.classList.remove("active");
+  resultScreen.classList.add("active");
 
   progressFill.style.width = "100%";
   finalScore.textContent = `Je score is ${score} van de ${questions.length}.`;
