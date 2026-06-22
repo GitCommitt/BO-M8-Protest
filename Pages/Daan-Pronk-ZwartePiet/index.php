@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +19,10 @@
         <div class="modal-content">
             <span class="close" onclick="closeVideoModal()">&times;</span>
             <iframe 
+                id="videoPlayer"
                 width="100%" 
                 height="500" 
-                src="img/video.mp4" 
+                data-src="img/video.mp4" 
                 frameborder="0" 
                 allowfullscreen>
             </iframe>
@@ -43,10 +44,10 @@
             <p class="timeline-intro">Klik op een jaar om meer te zien over wat er gebeurde</p>
             
             <div class="timeline-container">
-                <button class="timeline-button" onclick="toggleYear(2011)">2011</button>
-                <button class="timeline-button" onclick="toggleYear(2014)">2014</button>
-                <button class="timeline-button" onclick="toggleYear(2020)">2020</button>
-                <button class="timeline-button" onclick="toggleYear(2022)">2022-2023</button>
+                <button class="timeline-button" onclick="toggleYear(2011, event)">2011</button>
+                <button class="timeline-button" onclick="toggleYear(2014, event)">2014</button>
+                <button class="timeline-button" onclick="toggleYear(2020, event)">2020</button>
+                <button class="timeline-button" onclick="toggleYear(2022, event)">2022-2023</button>
             </div>
 
             <div class="timeline-content" id="year-2011">
@@ -69,7 +70,7 @@
                     <p>Het protest verschuift naar de officiële intocht op de Dam. De discussie is inmiddels ontploft. De organisatie probeert te sussen door voor het eerst 'Witte Pieten' en 'Rode Pieten' mee te laten lopen, terwijl KOZP-demonstranten op de Dam met spandoeken staan tussen het feestvierende publiek.</p>
                     
                     <h4>De Betekenis:</h4>
-                    <p>Dit laat de eerste zichtbare twijfel en verandering in de traditie zien, hoewel de alternatieve Pieten destijds nog veelvuldig werden uitgejouwd.</p>
+                    <p>Dit laat het eerste zichtbare twijfel en verandering in de traditie zien, hoewel de alternatieve Pieten destijds nog veelvuldig werden uitgejouwd.</p>
                     
                     <img class="tijdlijn-img" src="img/2014-photo.jpg" alt="">
                 </div>
@@ -98,14 +99,13 @@
                     <p>Dit laat het 'eindpunt' (of de huidige status) van de transformatie op de Dam zien, waarbij de focus van de protesten is verschoven naar kleinere gemeenten buiten de Randstad.</p>
                 
                     <img class="tijdlijn-img" src="img/2022-photo.jpg" alt="">
-
                 </div>
             </div>
         </section>
 
         <section class="timeline-game-section">
-            <h2>Zet de Gebeuringen op Juiste Volgorde!</h2>
-            <p class="timeline-game-intro">Sleep de kaarten naar de juiste plaats in de tijdlijn</p>
+            <h2>Zet de Gebeurtenissen op de Juiste Volgorde!</h2>
+            <p class="timeline-game-intro">Klik op een kaart en klik daarna op het juiste jaartal in de tijdlijn.</p>
             
             <div class="timeline-game-container">
                 <div class="timeline-track" id="timelineTrack">
@@ -124,17 +124,16 @@
                 </div>
 
                 <div class="events-pool" id="eventsPool">
-                    <div class="event-card" draggable="true" data-year="2020">Massale coronaprotest met 10.000 mensen</div>
-                    <div class="event-card" draggable="true" data-year="2014">Eerste Witte en Rode Pieten verschijnen</div>
-                    <div class="event-card" draggable="true" data-year="2011">Arrestaties van demonstranten</div>
-                    <div class="event-card" draggable="true" data-year="2022">Roetveegpiet is standaard in Amsterdam</div>
+                    <div class="event-card" data-year="2020">Massale coronaprotest met 10.000 mensen</div>
+                    <div class="event-card" data-year="2014">Eerste Witte en Rode Pieten verschijnen</div>
+                    <div class="event-card" data-year="2011">Arrestaties van demonstranten</div>
+                    <div class="event-card" data-year="2022">Roetveegpiet is standaard in Amsterdam</div>
                 </div>
 
                 <button class="check-btn" onclick="checkTimeline()">Controleer Antwoord</button>
                 <button class="reset-btn" onclick="resetTimeline()">Opnieuw</button>
                 <div id="timelineResult" class="timeline-result"></div>
             </div>
-        </section>
         </section>
     </div>
 
