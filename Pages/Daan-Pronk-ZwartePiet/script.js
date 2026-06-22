@@ -1,19 +1,25 @@
 function openVideoModal() {
-    document.getElementById("videoModal").style.display = "flex";
+    const modal = document.getElementById("videoModal");
+    const iframe = document.getElementById("videoPlayer");
+    iframe.src = iframe.getAttribute("data-src");
+    modal.style.display = "flex";
 }
 
 function closeVideoModal() {
-    document.getElementById("videoModal").style.display = "none";
+    const modal = document.getElementById("videoModal");
+    const iframe = document.getElementById("videoPlayer");
+    iframe.src = "";
+    modal.style.display = "none";
 }
 
 window.onclick = function (event) {
     var modal = document.getElementById("videoModal");
     if (event.target == modal) {
-        modal.style.display = "none";
+        closeVideoModal();
     }
 }
 
-function toggleYear(year) {
+function toggleYear(year, event) {
     const contentId = 'year-' + year;
     const content = document.getElementById(contentId);
     const buttons = document.querySelectorAll('.timeline-button');
@@ -30,46 +36,80 @@ function toggleYear(year) {
     });
 
     content.classList.toggle('active');
-
-    event.target.classList.toggle('active');
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.toggle('active');
+    }
 }
 
-let draggedElement = null;
+let selectedCard = null;
 
-document.addEventListener('dragstart', (e) => {
-    if (e.target.classList.contains('event-card')) {
-        draggedElement = e.target;
-        e.target.style.opacity = '0.5';
-    }
-});
+document.addEventListener('DOMContentLoaded', function () {
+    const eventsPool = document.getElementById('eventsPool');
+    const slots = document.querySelectorAll('.timeline-slot');
 
-document.addEventListener('dragend', (e) => {
-    if (e.target.classList.contains('event-card')) {
-        e.target.style.opacity = '1';
-    }
-});
-
-document.addEventListener('dragover', (e) => {
-    e.preventDefault();
-});
-
-document.addEventListener('drop', (e) => {
-    e.preventDefault();
-    const slot = e.target.closest('.timeline-slot');
-    
-    if (slot && draggedElement) {
-        const existingCard = slot.querySelector('.event-card');
-        
-        if (existingCard) {
-            document.getElementById('eventsPool').appendChild(existingCard);
+    function handlePoolInteraction(e) {
+        const card = e.target.closest('.event-card');
+        if (card) {
+            e.preventDefault();
+            selectCard(card);
+        } else if (selectedCard) {
+            e.preventDefault();
+            eventsPool.appendChild(selectedCard);
+            selectedCard.classList.remove('selected');
+            selectedCard = null;
+            document.getElementById('timelineResult').innerHTML = '';
         }
-        
-        draggedElement.style.opacity = '1';
-        slot.appendChild(draggedElement);
-        draggedElement = null;
-        document.getElementById('timelineResult').innerHTML = '';
     }
+
+    eventsPool.addEventListener('click', handlePoolInteraction);
+    eventsPool.addEventListener('touchstart', handlePoolInteraction, { passive: false });
+
+    slots.forEach(slot => {
+        function handleSlotInteraction(e) {
+            const card = e.target.closest('.event-card');
+            if (card) {
+                e.preventDefault();
+                e.stopPropagation();
+                selectCard(card);
+            } else if (selectedCard) {
+                e.preventDefault();
+                placeCardInSlot(slot);
+            }
+        }
+
+        slot.addEventListener('click', handleSlotInteraction);
+        slot.addEventListener('touchstart', handleSlotInteraction, { passive: false });
+    });
 });
+
+function selectCard(card) {
+    if (selectedCard && selectedCard !== card) {
+        selectedCard.classList.remove('selected');
+    }
+
+    if (selectedCard === card) {
+        selectedCard.classList.remove('selected');
+        selectedCard = null;
+    } else {
+        selectedCard = card;
+        selectedCard.classList.add('selected');
+    }
+}
+
+function placeCardInSlot(slot) {
+    if (!selectedCard) return;
+
+    const existingCard = slot.querySelector('.event-card');
+    if (existingCard) {
+        document.getElementById('eventsPool').appendChild(existingCard);
+    }
+
+    slot.appendChild(selectedCard);
+    selectedCard.classList.remove('selected');
+    selectedCard = null;
+    
+    document.getElementById('timelineResult').innerHTML = '';
+}
 
 function checkTimeline() {
     const slots = document.querySelectorAll('.timeline-slot');
@@ -82,6 +122,8 @@ function checkTimeline() {
             total++;
             const cardYear = card.getAttribute('data-year');
             const slotYear = slot.getAttribute('data-year');
+            
+            card.classList.remove('correct', 'wrong');
             if (cardYear === slotYear) {
                 correct++;
                 card.classList.add('correct');
@@ -94,7 +136,7 @@ function checkTimeline() {
     const result = document.getElementById('timelineResult');
     
     if (total === 0) {
-        result.innerHTML = '<p class="result-text">📍 Sleep eerst de kaarten naar de tijdlijn!</p>';
+        result.innerHTML = '<p class="result-text">📍 Klik eerst op een kaart en daarna op een vakje!</p>';
         return;
     }
     
@@ -110,8 +152,12 @@ function checkTimeline() {
 function resetTimeline() {
     const eventsPool = document.getElementById('eventsPool');
     const allCards = document.querySelectorAll('.event-card');
-    const slots = document.querySelectorAll('.timeline-slot');
     
+    if (selectedCard) {
+        selectedCard.classList.remove('selected');
+        selectedCard = null;
+    }
+
     allCards.forEach(card => {
         card.classList.remove('correct', 'wrong');
         eventsPool.appendChild(card);
@@ -119,6 +165,3 @@ function resetTimeline() {
     
     document.getElementById('timelineResult').innerHTML = '';
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-});
